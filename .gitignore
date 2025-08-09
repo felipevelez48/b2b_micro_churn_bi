@@ -1,0 +1,6 @@
+data/raw/*
+*.pbix
+.env
+.venv/
+.ipynb_checkpoints/
+condiciones_iniciales/
