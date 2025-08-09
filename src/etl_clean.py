@@ -20,10 +20,16 @@ def main():
             df[col] = pd.to_datetime(df[col], errors="coerce")
 
     if "Periodo" in df.columns:
-        p = pd.to_datetime(df["Periodo"], errors="coerce")
-        df["Periodo_norm"] = p.dt.to_period("M").astype("string")
+        p = df["Periodo"].astype("string").str.strip()
+        per = pd.to_datetime(p, format="%Y-%m", errors="coerce")
+        mask = per.isna()
+        per.loc[mask] = pd.to_datetime(p[mask], format="%Y%m", errors="coerce")
+        df["Periodo_norm"] = per.dt.to_period("M").astype("string")
     else:
         df["Periodo_norm"] = df["Fecha Evento"].dt.to_period("M").astype("string")
+
+    mask2 = df["Periodo_norm"].isna() & df["Fecha Evento"].notna()
+    df.loc[mask2, "Periodo_norm"] = df.loc[mask2, "Fecha Evento"].dt.to_period("M").astype("string")
 
     if all(c in df.columns for c in ["Fecha Evento","Fecha Churn"]):
         df["Mes Churn"] = [months_diff(a,b) for a,b in zip(df["Fecha Evento"], df["Fecha Churn"])]
