@@ -4,3 +4,5 @@ data/raw/*
 .venv/
 .ipynb_checkpoints/
 condiciones_iniciales/
+data/processed/*
+notebooks/data/processed/fact_ventas_churn.csv

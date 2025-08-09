@@ -2,3 +2,5 @@ pandas
 pyarrow
 openpyxl
 jupyter
+ipykernel
+matplotlib
