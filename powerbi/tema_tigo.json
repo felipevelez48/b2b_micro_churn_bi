@@ -1,0 +1,17 @@
+{
+  "name": "Tigo-like",
+  "dataColors": ["#123773","#14259B","#4F6FD8","#A7B8FF","#FFDE21","#7F8EA3","#C1CAD6"],
+  "background": "#FFFFFF",
+  "foreground": "#09193E",
+  "tableAccent": "#14259B",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [{ "show": true, "fontFamily": "Segoe UI Semibold", "fontSize": 12, "color": { "solid": { "color": "#09193E" }}}],
+        "labels": [{ "color": { "solid": { "color": "#09193E" }}, "fontFamily": "Segoe UI"}],
+        "categoryLabels": [{ "color": { "solid": { "color": "#09193E" }}}]
+      }
+    },
+    "card": { "*": { "labelColor": [{ "solid": { "color": "#09193E" }}]} }
+  }
+}
